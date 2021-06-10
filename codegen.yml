@@ -1,0 +1,20 @@
+overwrite: true
+schema:
+  - ${CODE_GEN_API_URL}:
+      headers:
+        authorization: ${CODE_GEN_TOKEN}
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+
+generates:
+  src/generated/schemas.tsx:
+    documents: 'src/graphql/**/**/**.gql'
+    plugins:
+      - typescript
+      - typescript-react-apollo
+      - typescript-operations
+    config:
+      withHOC: false
+      withComponent: false
+      withHooks: true

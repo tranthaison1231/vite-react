@@ -1,0 +1,15 @@
+query getCountries($queryParams: QueryFilterDto!) {
+  getCountries(queryParams: $queryParams) {
+    meta {
+      ...MetaFragment
+    }
+    items {
+      id
+      createdAt
+      updatedAt
+      name
+      isActive
+      isoCode
+    }
+  }
+}
